@@ -1,0 +1,138 @@
+1 Find Files Using Name in Current Directory
+  find . -name tecmint.txt
+
+2 Find Files Under Home Directory
+  find /home -name tecmint.txt
+
+3 Find Files Using Name and Ignoring Case
+  find /home -iname tecmint.txt
+
+4 Find Directories Using Name
+  find / -type d -name Tecmint
+
+5 Find PHP Files Using Name
+  find . -type f -name tecmint.php
+
+6 Find all PHP Files in the Directory
+  find . -type f -name "*.php"
+
+7 Find Read-Only Files
+  find / -perm /u=r
+
+8 Find Executable Files
+  find / -perm /a=x
+
+9  Find Files with 777 Permissions and Chmod to 644
+   find / -type f -perm 0777 -print -exec chmod 644 {} \;
+
+10 Find Directories with 777 Permissions and Chmod to 755
+   find / -type d -perm 777 -print -exec chmod 755 {} \;
+
+11 Find and remove single File
+   find . -type f -name "tecmint.txt" -exec rm -f {} \;
+
+12 Find and remove Multiple File
+   find . -type f -name "*.txt" -exec rm -f {} \;
+
+13 Find all Empty Files
+   find /tmp -type f -empty
+
+14 Find all Empty Directories
+   find /tmp -type d -empty
+
+15 File all Hidden Files
+   find /tmp -type f -name ".*"
+
+16 Find Single File Based on User
+   find / -user root -name tecmint.txt
+
+17 Find all Files Based on User
+   find /home -user tecmint
+
+18 Find all Files Based on Group
+   find /home -group developer
+
+19 Find Last 50 Days Modified Files
+   find / -mtime 50
+
+20  Find Last 50-100 Days Modified Files
+    find / -mtime +50 –mtime -100
+
+21 Find Modified Files in Last 1 Hour
+   find / -mmin -60
+
+22 Find 50MB Files
+   find / -size 50M
+
+23 Find Size between 50MB – 100MB
+   find / -size +50M -size -100M
+
+24 Find and Delete 100MB Files
+   find / -type f -size +100M -exec rm -f {} \;
+
+25 Find Specific Files and Delete
+   find / -type f -name *.mp3 -size +10M -exec rm {} \;
+
+=====================================================================================
+apt command
+======================
+sudo apt update
+
+To upgrade all packages currently installed on the system, run:
+sudo apt upgrade
+
+To see the list of packages that can be upgraded on the system, enter:
+apt list --upgradable
+
+Full system upgrade
+sudo apt full-upgrade
+
+To install a new package called nginx, enter:
+sudo apt install {pkgNameHere}
+
+To delete or remove a package called nginx, enter:
+sudo apt remove {pkgNameHere}
+
+sudo apt purge {pkgNameHere}
+
+The autoremove option is used to remove packages that were automatically installed to satisfy dependencies for other packages and are now no longer needed as dependencies changed or the package(s) needing them were removed in the meantime
+
+sudo apt autoremove
+sudo apt --purge autoremove
+
+If you want to remove htop and install vim in one step, try:
+sudo apt remove htop vim+
+
+Another way to do the same thing:
+sudo apt install htop- vim
+
+apt search php
+
+How to find info about packages
+apt show nginx
+
+To list all packages, enter:
+apt list
+
+List package dependency
+apt depends {pkgNameHere}
+apt depends sudo
+
+Package holding means it can not be upgraded till you run unhold on it again. The syntax is:
+sudo apt-mark hold {pkgName}
+sudo apt-mark hold sudo
+
+How do I unhold a package?
+sudo apt-mark unhold {pkgName}
+sudo apt-mark unhold sudo
+
+
+=============================================================================
+How to add a user to sudo
+usermod -aG sudo username
+
+In /etc/sudoers file
+username  ALL=(ALL) NOPASSWD:ALL
+username ALL=(ALL) NOPASSWD:/bin/mkdir,/bin/rmdir
+
+
